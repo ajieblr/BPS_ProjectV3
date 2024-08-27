@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+    font-family: "poppins", sans-serif;
+}
+
+body {
+    display: flex;
+}
+
+.sidebar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 240px;
+    height: 100vh;
+    padding: 0 1.7rem;
+    color: #fff;
+    overflow: hidden;
+    transition: all 0.5s linear;
+    background: rgba(113, 99, 186, 255);
+}
+
+.logo {
+    height: 80px;
+    padding: 16px;
+}
+
+.menu {
+    height: 88%;
+    position: absolute;
+    list-style: none;
+    padding: 0;
+}
+
+.menu li {
+    padding: 1rem;
+    margin: 8px 0;
+    border-radius: 8px;
+    transition: all 0.5s ease-in-out;
+}
+
+.menu li:hover,
+.active {
+    background: #e0e0e058;
+}
+
+.menu a {
+    color: #fff;
+    font-size: 14px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.menu a span {
+    overflow: hidden;
+}
+
+.menu a i {
+    font-size: 1.2rem;
+}
+
+.logout {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.main--content {
+    position: relative;
+    background: #ebe9e9;
+    width: 100%;
+    padding: 1rem;
+}
+
+.header--wrapper img{
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.header--wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    background: #fff;
+    border-radius: 10px;
+    padding: 10px 1rem;
+    margin-bottom: 1rem;
+}
+
+.header--title h2 {
+    font-size: 30px;
+    font-weight: 600;
+    color: rgba(113, 99, 186, 255);
+}
+
+.header--title span {
+    color: rgba(113, 99, 186, 255);
+    font-size: 14px;
+}
+
+.user--info {
+    display: flex;
+    align-items: center;
+    gap: 1;
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0.5px solid #f2f4f9;
+    border-radius: 0.25rem;
+    margin-bottom: 5px;
+}
+
+.card .card-header {
+    border-bottom: 1px solid #f2f4f9;
+    background-color: white;
+}
+
+/* .card-header {
+    padding: 0.875rem 1.5rem;
+    margin-bottom: 0;
+    border-bottom: 0.5px solid #f2f4f9;
+} */
+
+.card-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1.5rem;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -0.75rem;
+    margin-left: -0.75rem; 
+}
+
+.form-group {
+    margin-bottom: .5rem;
+}
+
+.form-group label {
+    font-size: 0.875rem;
+    line-height: 1.4rem;
+    vertical-align: top;
+    margin-bottom: .5rem; 
+}
+.form-group select {
+    font-size: 0.875rem;
+    line-height: 1rem;
+    vertical-align: bottom;
+    margin-bottom: .5rem;
+    border: gray 0.5px solid;
+}
+
+td {
+    font-size: 14px;
+}
+
+td a {
+    color: #727cf5;
+    text-decoration: none;
+    text-align: center;
+}
+
+.badge {
+    display: inline-block;
+    padding: 4px 5px;
+    text-align: center;
+}
+
+td .btn {
+    padding: .5rem 1rem .4rem;
+    line-height: 1;
+    font-size: 12px;
+}
+
+
+.dataTables_filter label{
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.dataTables_filter label input{
+    margin-bottom: 5px;
+    border-color: #727cf5;
+}
+
+.dataTables_length label{
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.dataTables_length label select{
+    margin-bottom: 5px;
+    border-color: #727cf5;
+}
+
+.tablehead{
+    background-color: rgba(113, 99, 186, 255);
+}
+
+.dataTables_info {
+    font-size: 14px;
+}
+
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    font-size: 14px; /* Adjust the font size */
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current,
+    .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+        background: #007bff;
+        color: white !important;
+}
+
+tbody tr td button {
+    display: inline-block; /* Ensure buttons are inline elements */
+    margin: 10px auto; /* Center the button */
+}
+
+tbody tr td span {
+    display: inline-block; /* Ensure buttons are inline elements */
+    margin: 15px auto; /* Center the button */
+}
+

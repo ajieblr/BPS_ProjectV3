@@ -1,0 +1,147 @@
+<div class="card">
+  <div class="card-body">
+    <div class="row" id="row-tampilan">
+      <p class="text-muted mb-3"></p>
+      <div class="table-responsive">
+        <div id="dataTableExample_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
+          <div class="row">
+            <div class="col-sm-12 col-md-6">
+              <div class="dataTables_length" id="dataTableExample_length">
+                <label>Show <select name="dataTableExample_length" aria-controls="dataTableExample" class="custom-select custom-select-sm form-control form-control-sm">
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                    <option value="-1">semua</option>
+                  </select> entries </label>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+              <div id="dataTableExample_filter" class="dataTables_filter">
+                <label>Search: <input type="search" class="form-control form-control-sm" placeholder="" aria-controls="dataTableExample">
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <table id="dataTableExample" class="table table-bordered table-hover dataTable no-footer" role="grid" aria-describedby="dataTableExample_info">
+                <thead style="background-color:#8080ff;">
+                  <tr role="row">
+                    <th rowspan="2" class="text-center text-nowrap sorting" style="color:white; font-size:;  width: 1%;" tabindex="0" aria-controls="dataTableExample" colspan="1" aria-label="Periode: activate to sort column ascending">Periode</th>
+                    <th rowspan="2" class="text-center text-wrap sorting_desc" style="color:white; font-size:;   width: 1%;" tabindex="0" aria-controls="dataTableExample" colspan="1" aria-label="Label: activate to sort column ascending" aria-sort="descending">Label</th>
+                    <th rowspan="2" class="text-center text-wrap sorting" style="color:white; font-size:;   width: 50%;" tabindex="0" aria-controls="dataTableExample" colspan="1" aria-label="Headline: activate to sort column ascending">Headline</th>
+                    <th rowspan="2" class="text-center sorting_disabled" style="color:white; font-size:;   width: 1%;" colspan="1" aria-label="View">View</th>
+                    <th rowspan="2" class="text-center sorting_disabled" style="color:white; font-size:;   width: 1%;" colspan="1" aria-label="ACT">ACT</th>
+                    <th colspan="4" class="text-center" style="color:white; font-size:;   width: 1%;" rowspan="1">Kategori</th>
+                    <th rowspan="2" class="text-center sorting_disabled" style="color:white; font-size:;   width: 1%;" colspan="1" aria-label="ACT">ACT</th>
+                    <th rowspan="2" class="text-center text-wrap sorting" style="color:white; font-size:;   width: 1%;" tabindex="0" aria-controls="dataTableExample" colspan="1" aria-label="By: activate to sort column ascending">By</th>
+                  </tr>
+                  <tr role="row">
+                    <th class="text-center text-wrap sorting" style="color:white; font-size:;   width: 1%;" tabindex="0" aria-controls="dataTableExample" rowspan="1" colspan="1" aria-label="Pred: activate to sort column ascending">Pred</th>
+                    <th class="text-center text-wrap sorting" style="color:white; font-size:;   width: 1%;" tabindex="0" aria-controls="dataTableExample" rowspan="1" colspan="1" aria-label="Prob: activate to sort column ascending">Prob</th>
+                    <th class="text-center sorting_disabled" style="color:white; font-size:;   width: 1%;" rowspan="1" colspan="1" aria-label="Act">Act</th>
+                    <th class="text-center text-wrap sorting" style="color:white; font-size:;   width: 1%;" tabindex="0" aria-controls="dataTableExample" rowspan="1" colspan="1" aria-label="Ver: activate to sort column ascending">Ver</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="odd">
+                    <td class=" text-nowrap">Q1-2024</td>
+                    <td class="text-wrap sorting_1">Berita Lhokseumawe (SerambiNews)</td>
+                    <td class=" text-wrap">
+                      <a href="https://aceh.tribunnews.com/2024/01/02/serahkan-bantuan-rak-bagi-penjahit-sepatu-pj-wali-kota-lhokseumawe-berharap-jadi-home-industri" target="_blank">Serahkan Bantuan Rak Bagi Penjahit Sepatu, Pj Wali Kota Lhokseumawe Berharap jadi Home Industri</a>
+                    </td>
+                    <td>
+                      <button onclick="showDetailFenomenaView('60230')" data-toggle="modal" data-target="#modal-view" class="btn btn-warning btn-sm">View</button>
+                    </td>
+                    <td>
+                      <button onclick="showDetailFenomena('60230')" data-toggle="modal" data-target="#modal-edit" class="btn btn-primary btn-sm">Update</button>
+                    </td>
+                    <td class=" text-wrap text-center">
+                      <span class="badge border border-primary text-primary">
+                        <h5>C5</h5>
+                      </span>
+                    </td>
+                    <td class=" text-wrap text-center">
+                      <span class="badge bg-danger text-white">
+                        <h5>0.13</h5>
+                      </span>
+                    </td>
+                    <td>
+                      <button onclick="toggleKategori('60230')" class="btn btn-danger btn-sm" id="btn-delete">=</button>
+                    </td>
+                    <td class=" text-wrap text-center">
+                      <span class="badge border border-primary text-primary">
+                        <h5>null</h5>
+                      </span>
+                    </td>
+                    <td>
+                      <button onclick="toggleStatus('60230')" class="btn btn-danger btn-sm" id="btn-delete">Arsip!!</button>
+                    </td>
+                    <td class=" text-wrap"></td>
+                  </tr>
+                  <tr class="even">
+                    <td class=" text-nowrap">Q1-2024</td>
+                    <td class="text-wrap sorting_1">Berita Simeulue (SerambiNews)</td>
+                    <td class=" text-wrap">
+                      <a href="https://aceh.tribunnews.com/2024/01/08/kip-simeulue-mulai-sortir-dan-lipat-kertas-suara-libatkan-90-orang-pekerja" target="_blank">KIP Simeulue Mulai Sortir dan Lipat Kertas Suara, Libatkan 90 Orang Pekerja</a>
+                    </td>
+                    <td>
+                      <button onclick="showDetailFenomenaView('60570')" data-toggle="modal" data-target="#modal-view" class="btn btn-warning btn-sm">View</button>
+                    </td>
+                    <td>
+                      <button onclick="showDetailFenomena('60570')" data-toggle="modal" data-target="#modal-edit" class="btn btn-primary btn-sm">Update</button>
+                    </td>
+                    <td class=" text-wrap text-center">
+                      <span class="badge border border-primary text-primary">
+                        <h5>C5</h5>
+                      </span>
+                    </td>
+                    <td class=" text-wrap text-center">
+                      <span class="badge bg-danger text-white">
+                        <h5>0.12</h5>
+                      </span>
+                    </td>
+                    <td>
+                      <button onclick="toggleKategori('60570')" class="btn btn-danger btn-sm" id="btn-delete">=</button>
+                    </td>
+                    <td class=" text-wrap text-center">
+                      <span class="badge border border-primary text-primary">
+                        <h5>null</h5>
+                      </span>
+                    </td>
+                    <td>
+                      <button onclick="toggleStatus('60570')" class="btn btn-danger btn-sm" id="btn-delete">Arsip!!</button>
+                    </td>
+                    <td class=" text-wrap"></td>
+                  </tr>
+                </tbody>
+              </table>
+              <div id="dataTableExample_processing" class="dataTables_processing card" style="display: none;">Processing...</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12 col-md-5">
+              <div class="dataTables_info" id="dataTableExample_info" role="status" aria-live="polite">Showing 1 to 2 of 2 entries</div>
+            </div>
+            <div class="col-sm-12 col-md-7">
+              <div class="dataTables_paginate paging_simple_numbers" id="dataTableExample_paginate">
+                <ul class="pagination">
+                  <li class="paginate_button page-item previous disabled" id="dataTableExample_previous">
+                    <a href="#" aria-controls="dataTableExample" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
+                  </li>
+                  <li class="paginate_button page-item active">
+                    <a href="#" aria-controls="dataTableExample" data-dt-idx="1" tabindex="0" class="page-link">1</a>
+                  </li>
+                  <li class="paginate_button page-item next disabled" id="dataTableExample_next">
+                    <a href="#" aria-controls="dataTableExample" data-dt-idx="2" tabindex="0" class="page-link">Next</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

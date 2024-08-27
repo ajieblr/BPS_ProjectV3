@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+    <title>Dashboard Analisis Berita</title>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <ul class="menu">
+                <li class="active">
+                    <a href="#">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-user"></i>
+                        <span>Profile</span>
+                    </a>
+                </li>
+                <li class="logout">
+                    <a href="#">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="main--content">
+        <div class="header--wrapper">
+            <div class="header--title">
+                <span>News Analyst</span>
+                <h2>Dashboard</h2>
+            </div>
+            <div class="user--info">
+                <div class="search--box">
+                    <i class="fa-solid fa-search"></i>
+                    <input type="text" placeholder="Search"/>
+                </div>
+                <img src="{{ url_for('static', filename='images/gambar_2.jpg') }}" alt="gambar muka">
+            </div>
+        </div>
+        <div class="page-content">
+            <div class="card">
+                <div class="card-header">Data Fenomena (Aktif)</div>
+                <div class="card-body">
+                    <div class="row" id="row-tampilan">
+                        <div class="col-md-1">
+                            <div class="form-group">
+                                <label>Tahun</label>
+                                <select id="filter-tahun" class="custom-select custom-select-sm form-control form-control-sm" data-width="100%" n>
+                                    <option value="">--Pilih--</option>
+                                    <option value="2024">2024</option>
+                                    <option value="2023">2023</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                            <div class="form-group">
+                                <label>Triwulan</label>
+                                <select id="filter-triwulan" class="custom-select custom-select-sm form-control form-control-sm">
+                                    <option value="">--Pilih--</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label>Kategori  Hasil Prediksi ML</label>
+                                <select id="filter-kategori-model" class="custom-select custom-select-sm form-control form-control-sm">
+                                    <option value="">--Pilih--</option>
+                                    <option value="Z1">Z1 - Geografi dan Iklim </option>
+                                    <option value="Z2">Z2 - Penduduk dan Ketenagakerjaan </option>
+                                    <option value="Z3">Z3 - Sosial dan Kesejaheraan Rakyat </option>
+                                    <option value="A">A - Pertanian, Kehutanan, Peternakan, dan Perikanan </option>
+                                    <option value="B">B - Pertambangan dan Energi </option>
+                                    <option value="C">C - Industri Manufaktur </option>
+                                    <option value="D">D - Pengadaan Listrik dan Gas </option>
+                                    <option value="E">E - Pengadaan Air, Pengelolaan Sampah, Limbah dan Daur Ulang </option>
+                                    <option value="F">F - Kontruksi </option>
+                                    <option value="G">G - Perdagangan Besar dan Eceran, Reparasi Mobil dan Sepeda Motor </option>
+                                    <option value="Z5">Z5 - Harga-harga </option>
+                                    <option value="H">H - Transportasi </option>
+                                    <option value="Z4">Z4 - Pariwisata </option>
+                                    <option value="I">I - Penyediaan Akomodasi dan Makan Minum </option>
+                                    <option value="J">J - Informasi dan Komunikasi </option>
+                                    <option value="K">K - Jasa Keuangan, Perbankan, dan Koperasi </option>
+                                    <option value="L">L - Real Estate </option>
+                                    <option value="MN">MN - Jasa Perusahaan </option>
+                                    <option value="O">O - Pemerintahan </option>
+                                    <option value="P">P - Jasa Pendidikan </option>
+                                    <option value="Q">Q - Jasa Kesehatan dan Kegiatan Sosial </option>
+                                    <option value="RSTU">RSTU - Jasa Lainnya </option>
+                                    <option value="XX">XX - Tidak Relevan </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label>Portal Berita</label>
+                                <select id="filter-kategori-manual"  class="custom-select custom-select-sm form-control form-control-sm">
+                                    <option value="">--Pilih--</option>
+                                    <option value="tribunnews">Serambi news </option>
+                                    <option value="antaranews">Antaranews </option>
+                                    <option value="Berita Aceh">Portal Aceh </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <div class="row" id="row-tampilan">
+                        <p class="text-muted mb-3"></p>
+                        <div class="table-responsive">
+                            <table id="dataTableExample" class="table">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th rowspan="2" class="text-center" style="color:white; font-size:14px;   width: 1%;">Periode</th>
+                                        <th rowspan="2" class="text-center" style="color:white; font-size:14px;   width: 1%;">Label</th>
+                                        <th rowspan="2" class="text-center" style="color:white; font-size:14px;   width: 50%;">Headline</th>
+                                        <th rowspan="2" class="text-center" style="color:white; font-size:14px;   width: 1%;">View</th>
+                                        <!-- <th rowspan="2" class="text-center" style="color:white; font-size:14px;   width: 1%;">ACT</th> -->
+                                        <th colspan="2" class="text-center" style="color:white; font-size:14px;   width: 1%;">Kategori</th>
+                                        <th rowspan="2" class="text-center" style="color:white; font-size:14px;   width: 1%;">Sentimen</th>
+                                        <th rowspan="2" class="text-center" style="color:white; font-size:14px;   width: 1%;">By</th>
+                                    </tr>
+                                    <tr>
+                                        <th class="text-center" style="color:white; font-size:14px;   width: 1%;">Pred</th>
+                                        <th class="text-center" style="color:white; font-size:14px;   width: 1%;">Prob</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- start of looping -->
+                                    {% for row in data %}
+                                    <tr class="odd">
+                                      <td class="text-nowrap text-center">{{ row.periode }}</td>
+                                      <td class="text-wrap sorting_1">{{ row.label }}</td>
+                                      <td class="text-wrap">
+                                        <a href="{{ row.link }}" target="_blank">{{ row.headline }}</a>
+                                      </td>
+                                      <td text-wrap text-center>
+                                        <button type="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#exampleModal" >View</button>
+                                        <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                            Launch demo modal
+                                        </button> -->
+                                      </td>
+                                      <td class=" text-wrap text-center">
+                                        <button onclick="" class="btn btn-outline-secondary btn-sm">{{ row.predik }}</button>
+                                      </td>
+                                      <td class=" text-wrap text-center"><button onclick="" data-target="#modal-edit" class="btn btn-outline-info btn-sm">-</button></td>
+                                      <td class=" text-wrap text-center">
+                                        <button onclick="" class="btn {% if row.sentimen == 'positif' %} btn-success {% elif row.sentimen == 'negatif' %} btn-danger  {% else %} btn-primary  {% endif %} btn-sm align-self-center" id="btn-delete">{{ row.sentimen }}</button>
+                                      </td>
+                                      <td class="text-center"><span class="badge badge-dark ">BPS</span></td>
+                                    </tr>
+                                    {% endfor %}
+                                    <!-- end of looping -->
+                                  </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+                Menkes: Rutin cek kesehatan agar umur panjang,"Jakarta (ANTARA) 
+              </h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p>
+                Menteri Kesehatan Budi Gunadi Sadikin mengatakan, publik perlu menjaga kesehatan dengan rutin melakukan cek kesehatan minimal setahun sekali agar dapat mengetahui riwayat kesehatan, dan segera mendapat penanganan apabila mengalami gangguan.Dalam keterangan yang diterima di Jakarta, Sabtu, Budi mengatakan bahwa hal tersebut penting dilakukan seiring meningkatnya prevalensi penyakit tidak menular di Indonesia. Sejumlah penyakit tidak menular, katanya, seperti jantung, stroke, dan kanker masih mendominasi penyebab kesakitan dan kematian di Indonesia.“Kalau itu dideteksi lebih dini 5 tahun sebelumnya, bisa dihindari sejak awal, jadi dia tidak akan kena stroke, tidak akan meninggal, umurnya akan panjang,"" ujarnya.Menurutnya, penyakit-penyakit tersebut adalah penyakit kronis yang terjadi dalam waktu lama serta membutuhkan biaya yang tidak sedikit.Dia menjelaskan, kegiatan pemeriksaan kesehatan dasar untuk mencegah penyakit-penyakit tersebut meliputi pemeriksaan tekanan darah, gula darah, dan kolesterol. Jika hasilnya tidak sesuai, harus segera berobat ke puskesmas.""Kalau di atas batas normal jangan panik, cepat datang ke Puskesmas, dikasih obat gratis, benar-benar gratis,"" katanya.Baca juga:Dirut BPJS Kesehatan cek layanan kesehatan di RSUD CiracasDia menambahkan, pemeriksaan lain yang perlu dilakukan yaitu lingkar perut atau Indeks Masa Tubuh (IMT). Batas aman lingkar perut pria, ujarnya, adalah 90 cm, sementara untuk wanita 80 cm.Dia menilai, jika melebihi batas, harus segera dikontrol, sebab apabila lemak perut bila berlebihan akan memicu masalah kesehatan yang serius seperti serangan jantung.""Paling mudah dilihat dari ukuran celana, kalau lebih dari 34 sudah obesitas, kalau 31-32 masih boleh,"" katanya.Budi juga menyampaikan bahwa masyarakat sehat berkaitan erat dengan visi Indonesia maju pada 2045. Dia menambahkan, salah satu kriteria Indonesia maju adalah pendapatan per kapita yang mencapai Rp 15 juta per bulan.“Kalau mau jadi Indonesia maju, orangnya harus sehat. Sehat itu harus dijaga jangan sampai sakit, caranya harus rajin ke Puskesmas untuk ukur 4 itu, minimal setahun sekali, kalau makin tua boleh lah 6 bulan sekali,"" katanya.Apabila pengecekan itu dilakukan, katanya, maka masyarakat dapat hidup mencapai rata-rata usia harapan hidup Indonesia, bahkan lebih.
+              </p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              
+            </div>
+          </div>
+        </div>
+    </div>
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <!-- Include DataTables JS -->
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js" integrity="sha512-yxUgN/nJWbOguxtqQZuzbivsf9OrHHQ8zEvgkTR2uNdDZ1OwM6poMBLt+fwc2X37sqw1PiEX7n/DQmj1x30Oqw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+            $('#dataTableExample').DataTable({
+                "pageLength": 10
+            });
+
+            // Event listener untuk filter portal berita
+            $('#filter-kategori-manual').change(function() {
+                filterData();
+            });
+
+            // Event listener untuk filter tahun
+            $('#filter-tahun').change(function() {
+                filterData();
+            });
+
+            // Event listener untuk filter triwulan
+            // $('#filter-triwulan').change(function() {
+            //     filterData();
+            // });
+
+            // Event listener untuk filter kategori
+            $('#filter-kategori-model').change(function() {
+                filterData();
+            });
+
+            function filterData() {
+            var selectedPortal = $('#filter-kategori-manual').val();
+            var selectedTahun = $('#filter-tahun').val();
+            // var selectedTriwulan = $('#filter-triwulan').val();
+            var selectedKategori = $('#filter-kategori-model').val();
+
+            $.ajax({
+                url: "/filter",
+                type: "GET",
+                data: {
+                    portal: selectedPortal,
+                    tahun: selectedTahun,
+                    // triwulan: selectedTriwulan,
+                    kategori: selectedKategori
+                },
+                success: function(response) {
+                    updateTable(response.data);
+                }
+            });
+        }
+
+            // // Event listener untuk filter portal berita
+            // $('#filter-kategori-manual').change(function() {
+            //     var selectedPortal = $(this).val();
+            //     $.ajax({
+            //         url: "/filter",
+            //         type: "GET",
+            //         data: {
+            //             portal: selectedPortal
+            //         },
+            //         success: function(response) {
+            //             updateTable(response.data);
+            //         }
+            //     });
+            // });
+
+            // Fungsi untuk memperbarui tabel dengan data yang difilter
+            function updateTable(data) {
+                var table = $('#dataTableExample').DataTable();
+                table.clear();
+                data.forEach(function(row) {
+                    table.row.add([
+                        row.periode,
+                        row.label,
+                        '<a href="' + row.link + '" target="_blank">' + row.headline + '</a>',
+                        '<button type="button" class="btn btn-dark btn-sm" data-toggle="modal" data-target="#exampleModal">View</button>',
+                        '<button onclick="" class="btn btn-outline-secondary btn-sm">' + row.predik + '</button>',
+                        '<button onclick="" data-target="#modal-edit" class="btn btn-outline-info btn-sm">-</button>',
+                        '<button onclick="" class="btn ' + (row.sentimen == 'positif' ? 'btn-success' : row.sentimen == 'negatif' ? 'btn-danger' : 'btn-primary') + ' btn-sm align-self-center" id="btn-delete">' + row.sentimen + '</button>',
+                        '<span class="badge badge-dark">BPS</span>'
+                    ]);
+                });
+                table.draw();
+            }
+        });
+    </script>
+</body>
+</html>
